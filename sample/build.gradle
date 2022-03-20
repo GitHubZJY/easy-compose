@@ -1,0 +1,66 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdk compilesdkVersion
+
+    defaultConfig {
+        applicationId "com.zjy.easy_compose"
+        minSdk minsdkVersion
+        targetSdk targetsdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+        useIR = true
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion compose_version
+        kotlinCompilerVersion '1.5.21'
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+
+    implementation coreKtx
+    implementation appcompat
+    implementation material
+    implementation compose_ui
+    implementation compose_material
+    implementation compose_preview
+    implementation lifecycle_runtime_ktx
+    implementation activity_compose
+    implementation lifecycle_viewmodel_compose
+    implementation compose_livedata
+    implementation foundation
+
+
+    implementation(project(":swiperefresh"))
+}

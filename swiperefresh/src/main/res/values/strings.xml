@@ -1,0 +1,5 @@
+<resources>
+    <string name="swipe_refresh_header_loading">Loading…</string>
+    <string name="swipe_refresh_header_release_refresh">Release refresh</string>
+    <string name="swipe_refresh_header_pull_to_refresh">Pull to refresh</string>
+</resources>
