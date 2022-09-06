@@ -17,7 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.zjy.easy_compose.ui.theme.EasycomposeTheme
+import com.zjy.easy_compose.ui.theme.EasyComposeTheme
 import com.zjy.swiperefresh.SwipeRefreshLayout
 
 class SwipeRefreshSample : ComponentActivity() {
@@ -27,7 +27,7 @@ class SwipeRefreshSample : ComponentActivity() {
             val viewModel: SwipeRefreshViewModel = viewModel()
             val isRefreshing = viewModel.showPullRefresh.observeAsState(false).value
 
-            EasycomposeTheme {
+            EasyComposeTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
                     SwipeRefreshLayout(isRefreshing = isRefreshing, onRefresh = {
