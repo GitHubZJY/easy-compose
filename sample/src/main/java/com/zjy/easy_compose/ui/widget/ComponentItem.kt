@@ -1,4 +1,4 @@
-package com.zjy.easy_compose
+package com.zjy.easy_compose.ui.widget
 
 import android.content.Context
 import android.content.Intent

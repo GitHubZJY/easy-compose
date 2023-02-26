@@ -4,12 +4,17 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.remember
@@ -18,6 +23,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.zjy.easy_compose.ui.theme.EasyComposeTheme
+import com.zjy.easy_compose.ui.widget.SWIPE_REFRESH
+import com.zjy.easy_compose.ui.widget.TopBar
 import com.zjy.swiperefresh.SwipeRefreshLayout
 
 class SwipeRefreshSample : ComponentActivity() {
@@ -30,11 +37,22 @@ class SwipeRefreshSample : ComponentActivity() {
             EasyComposeTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    SwipeRefreshLayout(isRefreshing = isRefreshing, onRefresh = {
-                        viewModel.mockReq()
-                    }, content = {
-                        ListContent()
-                    })
+                    Box {
+                        SwipeRefreshLayout(
+                            modifier = Modifier.padding(top = 64.dp),
+                            isRefreshing = isRefreshing,
+                            onRefresh = {
+                                viewModel.mockReq()
+                            }, content = {
+                                ListContent()
+                            })
+                        TopBar(
+                            title = SWIPE_REFRESH,
+                            leftIcon = Icons.Default.ArrowBack,
+                            onLeftClicked = {
+                                onBackPressed()
+                            })
+                    }
                 }
             }
         }
@@ -49,7 +67,9 @@ class SwipeRefreshSample : ComponentActivity() {
         LazyColumn {
             items(list.size) { index ->
                 Box(
-                    modifier = Modifier.fillMaxWidth().height(100.dp),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(100.dp),
                     contentAlignment = Alignment.Center
                 ) {
                     Text(list[index])
