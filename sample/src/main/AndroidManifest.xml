@@ -26,6 +26,10 @@
         <activity android:name=".sample.smsCodeInput.SmsCodeInputSample">
 
         </activity>
+
+        <activity android:name=".sample.datePicker.DatePickerSample">
+
+        </activity>
     </application>
 
 </manifest>

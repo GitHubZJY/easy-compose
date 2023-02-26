@@ -10,3 +10,4 @@ rootProject.name = "easy-compose"
 include ':sample'
 include ':swiperefresh'
 include ':sms-code-input'
+include ':date-picker'

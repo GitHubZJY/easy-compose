@@ -16,6 +16,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.zjy.easy_compose.sample.datePicker.DatePickerSample
 import com.zjy.easy_compose.sample.smsCodeInput.SmsCodeInputSample
 import com.zjy.easy_compose.sample.swiperefresh.SwipeRefreshSample
 
@@ -26,6 +27,7 @@ internal data class ComponentItemModel(
 
 const val SWIPE_REFRESH = "swipe-refresh"
 const val SMS_CODE_INPUT = "sms-code-input"
+const val DATE_PICKER = "date-picker"
 
 @Composable
 internal fun ComponentItem(item: ComponentItemModel) {
@@ -69,6 +71,9 @@ private fun handleClick(context: Context, name: String) {
         }
         SMS_CODE_INPUT -> {
             Intent(context, SmsCodeInputSample::class.java)
+        }
+        DATE_PICKER -> {
+            Intent(context, DatePickerSample::class.java)
         }
         else -> {
             null

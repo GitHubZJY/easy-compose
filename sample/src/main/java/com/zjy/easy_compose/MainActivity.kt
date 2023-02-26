@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import com.zjy.easy_compose.ui.theme.EasyComposeTheme
 import com.zjy.easy_compose.ui.widget.ComponentItem
 import com.zjy.easy_compose.ui.widget.ComponentItemModel
+import com.zjy.easy_compose.ui.widget.DATE_PICKER
 import com.zjy.easy_compose.ui.widget.SMS_CODE_INPUT
 import com.zjy.easy_compose.ui.widget.SWIPE_REFRESH
 import com.zjy.easy_compose.ui.widget.TopBar
@@ -45,7 +46,11 @@ private fun PageContent() {
         ComponentItemModel(
             SMS_CODE_INPUT,
             "A layout implements the sms codes input effects, layout with one TextField and multiple Text"
-        )
+        ),
+        ComponentItemModel(
+            DATE_PICKER,
+            "A layout implements the date picker effects, can selected by vertical scrolling, layout with multiple Columns"
+        ),
     )
 
     Column {
